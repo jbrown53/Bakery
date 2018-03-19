@@ -1,0 +1,45 @@
+﻿@model Bakery.Models.Receipt
+    @{
+        ViewBag.Title = "Receipt";
+    }
+
+    <h2>Receipt</h2>
+
+    <table class="table">
+        <tr>
+            <td>Date:</td>
+            <td>@Html.DisplayFor(model => model.date)</td>
+        </tr>
+        <tr>
+            <td>Employee:</td>
+            <td>@Html.DisplayFor(model => model.employee)</td>
+        </tr>
+        <tr>
+            <td>Customer:</td>
+            <td>@Html.DisplayFor(model => model.customer)</td>
+        </tr>
+        <tr>
+            <td>Product:</td>
+            <td>@Html.DisplayFor(model => model.item)</td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>@Html.DisplayFor(model => model.quantity)</td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>@Html.DisplayFor(model => model.price)</td>
+        </tr>
+        <tr>
+            <td>Discount Applied:</td>
+            <td>@Html.DisplayFor(model => model.discount)</td>
+        </tr>
+        <tr>
+            <td>Sale Tax:</td>
+            <td>@Html.DisplayFor(model => model.salesTax)</td>
+        </tr>
+        <tr>
+            <td>Eat-in Tax:</td>
+            <td>@Html.DisplayFor(model => model.eatInTax)</td>
+        </tr>
+    </table>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Bakery.Models.SaleDetail>
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All sales</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SaleKey</th>
+            <th>ProductKey</th>
+            <th>Price</th>
+            <th>quantity</th>
+            <th>discount</th>
+            <th>sales tax</th>
+            <th>eat in tax</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.SaleKey)</td>
+                <td>@Html.DisplayFor(model => item.ProductKey)</td>
+                <td>@Html.DisplayFor(model => item.SaleDetailPriceCharged)</td>
+                <td>@Html.DisplayFor(model => item.SaleDetailQuantity)</td>
+                <td>@Html.DisplayFor(model => item.SaleDetailDiscount)</td>
+                <td>@Html.DisplayFor(model => item.SaleDetailSaleTaxPercent)</td>
+                <td>@Html.DisplayFor(model => item.SaleDetailEatInTax)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,83 @@
+﻿@model Bakery.Models.SaleDetail
+@{
+    ViewBag.Title = "Index";
+    SelectList employees = ViewBag.Employees;
+    SelectList customers = ViewBag.Customers;
+    SelectList products = ViewBag.Products;
+}
+
+<h2>Sales</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductKey, "ProductKey", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ProductKey", products, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProductKey, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Customer</label>
+        <div class="col-md-10">
+            @Html.DropDownList("PersonKey", customers, new { @class="form-control"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Employees</label>
+        <div class="col-md-10">
+            @Html.DropDownList("EmployeeKey", employees, new { @class="form-control"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SaleDetailQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SaleDetailQuantity, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            @Html.ValidationMessageFor(model => model.SaleDetailQuantity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SaleDetailDiscount, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SaleDetailDiscount, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            @Html.ValidationMessageFor(model => model.SaleDetailDiscount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SaleDetailSaleTaxPercent, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SaleDetailSaleTaxPercent, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            @Html.ValidationMessageFor(model => model.SaleDetailSaleTaxPercent, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SaleDetailEatInTax, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SaleDetailEatInTax, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            @Html.ValidationMessageFor(model => model.SaleDetailEatInTax, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    @section Scripts {
+
+        @Scripts.Render("~/bundles/jqueryval")
+
+    }
+}
+
