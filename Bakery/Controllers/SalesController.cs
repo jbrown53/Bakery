@@ -56,11 +56,6 @@ namespace Bakery.Controllers
             return View("Receipt", receipt);
         }
 
-        public ActionResult Result(Message msg)
-        {
-            return View(msg);
-        }
-
         public ActionResult Receipt(Receipt rcpt)
         {
             return View(rcpt);
